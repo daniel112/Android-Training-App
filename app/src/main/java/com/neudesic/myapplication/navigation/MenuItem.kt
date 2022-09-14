@@ -1,4 +1,4 @@
-package com.neudesic.myapplication
+package com.neudesic.myapplication.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
