@@ -1,21 +1,33 @@
 package com.neudesic.myapplication.navigation
 
-
-//import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material3.Icon
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import com.neudesic.myapplication.R
 
 
 @Composable
 fun AppBar(
     onNavigationIconClick: () -> Unit
 ) {
-    // can't import material TopAppBar?
-    // when importing material3 TopAppBar having issues with materil 3 iconbuttons
-//    TopAppBar(
-//        title = {
-//            Text(text = stringResource(id = R.string.app_name))
-//        }
-//    )
+    CenterAlignedTopAppBar(
+        title = {
+            Text(text = stringResource(id = R.string.app_name))
+        },
+        navigationIcon = {
+            IconButton(
+                onClick = onNavigationIconClick,
+                ) {
+                Icon(
+                    imageVector = Icons.Outlined.Menu,
+                    contentDescription = "Toggle drawer"
+                )
+            }
+        }
+    )
 }
