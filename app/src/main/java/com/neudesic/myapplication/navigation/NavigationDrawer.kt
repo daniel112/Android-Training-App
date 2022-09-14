@@ -23,9 +23,9 @@ fun DrawerHeader() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 64.dp)
+            .padding(vertical = 24.dp)
     ){
-        Text(text = "Header", fontSize = 60.sp)
+        Text(text = "Nav Drawer", fontSize = 20.sp)
     }
 }
 
