@@ -1,7 +1,6 @@
 package com.neudesic.myapplication.data.repository
 
 import com.neudesic.myapplication.domain.repository.DadJokeRepository
-import com.neudesic.myapplication.data.Result
 import com.neudesic.myapplication.domain.models.DadJoke
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -1,6 +1,5 @@
 package com.neudesic.myapplication.domain.repository
 
-import com.neudesic.myapplication.data.Result
 import com.neudesic.myapplication.domain.models.DadJoke
 import retrofit2.Response
 
