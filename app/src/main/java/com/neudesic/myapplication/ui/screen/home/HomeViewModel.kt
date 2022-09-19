@@ -18,9 +18,9 @@ class HomeViewModel @Inject constructor(private val getDadJokesUseCase: GetDadJo
     val dataLoading: LiveData<Boolean> = _dataLoading
 
     fun getJoke() {
-        // Show loading indicator
+        // TODO: Show loading indicator
         _dataLoading.value = true
-
+        // TODO: setup for unit test coverages
 //        wrapEspressoIdlingResource {
             viewModelScope.launch {
                 getDadJokesUseCase.getSingleDadJoke().let { result ->

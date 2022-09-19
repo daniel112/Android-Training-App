@@ -14,9 +14,6 @@ import javax.inject.Singleton
 object ApplicationModule {
     @Provides
     @Singleton
-    // magically gets called and injected in the build process
-    // for any reference of DadJokeRepository interface
-    // name can be anything
     fun providesDadJokeRepo(dadJokeAPIService: DadJokeAPIService): DadJokeRepository {
         return DadJokeRepositoryImpl(dadJokeAPIService)
     }

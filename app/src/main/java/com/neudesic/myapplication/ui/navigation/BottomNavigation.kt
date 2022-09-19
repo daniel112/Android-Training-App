@@ -10,14 +10,23 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.neudesic.myapplication.items
 
+
+private val navigationItems = listOf(
+    Screen.Home,
+    Screen.List,
+)
+
+/**
+ * Sets up the bottom navigation bar with some navigation items declared in [MainNavigationGraph]
+ * @param navController main nav controller
+ */
 @Composable
 fun BottomNavigation(navController: NavController) {
     NavigationBar {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
-        items.forEachIndexed { _, item ->
+        navigationItems.forEachIndexed { _, item ->
             NavigationBarItem(
                 icon = { Icon(item.icon, contentDescription = item.route) },
                 label = { Text(stringResource(item.resourceId)) },

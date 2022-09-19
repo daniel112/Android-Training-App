@@ -42,9 +42,6 @@ object NetworkingModule {
         return "https://someotherurl.com"
     }
 
-    // NOTES: BaseUrl > provideRetrofitClient
-    //        provideOkHttpClient > provideRetrofitClient
-    //        provideRetrofitClient > provideRestApiService
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient()

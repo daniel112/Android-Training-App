@@ -42,28 +42,3 @@ fun App() {
         MainNavigationGraph(navController = navController)
     }
 }
-
-val items = listOf(
-    Screen.Home,
-    Screen.List,
-)
-
-
-
-/**
- * All values in sealed class are known at compile time -https://kotlinlang.org/docs/sealed-classes.html
- * similar to enums
- */
-sealed class Screen(val route: String, @StringRes val resourceId: Int, val icon: ImageVector) {
-    object Home : Screen("home", R.string.screen_home, Icons.Filled.Home)
-    object List : Screen("team", R.string.list_view, Icons.Filled.Face)
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    TrainingAppTheme {
-        App()
-    }
-}
