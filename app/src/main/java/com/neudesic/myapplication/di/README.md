@@ -9,6 +9,8 @@ Hilt provides a standard way to incorporate Dagger dependency injection into an 
 
 Functions declared with the dagger hit decorators (everything in `di` folder) does not get called by us. It's all abstracted away by the plugin to make our lives easier.
 
+![](/img/flow.png)
+
 ## di (Dependency Injection) Folder/File structure
 
 `di` folder is standard best practice for integrating with Dagger.
@@ -34,4 +36,3 @@ TBA
 ### References used
 
 - https://github.com/iambaljeet/JetPackHiltDemo - referenced for ideas on folder structure and modularization of files
--
