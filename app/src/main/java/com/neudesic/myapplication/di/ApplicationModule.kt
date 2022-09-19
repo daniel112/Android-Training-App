@@ -1,6 +1,7 @@
 package com.neudesic.myapplication.di
 
 import com.neudesic.myapplication.data.repository.DadJokeRepositoryImpl
+import com.neudesic.myapplication.domain.network.DadJokeAPIService
 import com.neudesic.myapplication.domain.repository.DadJokeRepository
 import dagger.Module
 import dagger.Provides
@@ -10,10 +11,13 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class ApplicationModule {
+object ApplicationModule {
     @Provides
     @Singleton
-    // how tf does this get called ? magically gets called in the build process
+    // magically gets called and injected in the build process
+    // for any reference of DadJokeRepository interface
     // name can be anything
-    fun providesDadJokeRepo(): DadJokeRepository = DadJokeRepositoryImpl()
+    fun providesDadJokeRepo(dadJokeAPIService: DadJokeAPIService): DadJokeRepository {
+        return DadJokeRepositoryImpl(dadJokeAPIService)
+    }
 }

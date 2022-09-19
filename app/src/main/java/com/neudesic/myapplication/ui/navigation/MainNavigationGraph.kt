@@ -5,9 +5,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.neudesic.myapplication.ui.screens.UserListScreen
-import com.neudesic.myapplication.ui.screens.home.HomeScreen
-import com.neudesic.myapplication.ui.screens.home.HomeViewModel
+import com.neudesic.myapplication.ui.screen.UserListScreen
+import com.neudesic.myapplication.ui.screen.home.HomeScreen
+import com.neudesic.myapplication.ui.screen.home.HomeViewModel
 
 @Composable
 fun MainNavigationGraph(navController: NavHostController) {

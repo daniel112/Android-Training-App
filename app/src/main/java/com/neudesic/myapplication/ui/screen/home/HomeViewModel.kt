@@ -1,10 +1,10 @@
-package com.neudesic.myapplication.ui.screens.home
+package com.neudesic.myapplication.ui.screen.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.neudesic.myapplication.domain.models.DadJoke
+import com.neudesic.myapplication.domain.model.DadJoke
 import com.neudesic.myapplication.domain.useCase.GetDadJokesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -25,7 +25,7 @@ class HomeViewModel @Inject constructor(private val getDadJokesUseCase: GetDadJo
             viewModelScope.launch {
                 getDadJokesUseCase.getSingleDadJoke().let { result ->
                     // safe casting
-                    if (result?.isSuccessful == true && result.body() is DadJoke) {
+                    if (result.isSuccessful) {
                         val test = result.body() as DadJoke
                         _dadJoke.value = test
                     } else {

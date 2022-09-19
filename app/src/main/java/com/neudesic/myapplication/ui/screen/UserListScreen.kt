@@ -1,4 +1,4 @@
-package com.neudesic.myapplication.ui.screens
+package com.neudesic.myapplication.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

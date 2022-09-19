@@ -1,4 +1,4 @@
-package com.neudesic.myapplication.ui.screens.home
+package com.neudesic.myapplication.ui.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -26,21 +26,25 @@ import com.neudesic.myapplication.R
 
 @Composable
 fun HomeScreen(vm: HomeViewModel) {
+    // ViewModel is injected on navigation
     val dadJoke by vm.dadJoke.observeAsState(initial = null)
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.teal_700))
-            .wrapContentSize(Alignment.Center)
+            .wrapContentSize(Alignment.Center),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = dadJoke?.joke ?: "empty",
             fontWeight = FontWeight.Bold,
             color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 10.dp),
             textAlign = TextAlign.Center,
-            fontSize = 20.sp
+            fontSize = 20.sp,
         )
         Button(onClick = { vm.getJoke() }, Modifier.padding(top = 5.dp), elevation =  ButtonDefaults.buttonElevation(
             defaultElevation = 10.dp,
