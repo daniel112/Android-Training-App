@@ -23,11 +23,17 @@ Utilizing [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/
 I'll try to give my high level reasoning for choosing this particular setup.
 
 ### High level folder setup
+
 - `di (Dependency Injection)` - [see README](./app/src/main/java/com/neudesic/myapplication/di/README.md)
   - Dagger Hilt injection modules
 - `domain`
   - Contains context and interface which describes the behavior of a system and its interactions with users.
   - Should be platform agnostic, meaning it doesn't have the specific implementation, rather just describes **what** the application does.
+  - `useCase` pattern
+    - https://github.com/android/architecture-samples/tree/usecases/app/src/main/java/com/example/android/architecture/blueprints/todoapp
+    - https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started#toc-anchor-002
+    - https://paulallies.medium.com/clean-architecture-in-the-flavour-of-jetpack-compose-dd4b0016f815
+    - https://proandroiddev.com/the-neverending-use-case-story-d30440e5c7f0
 - `ui`
   - Contains UI related code. Such as `@Composable`, Navigation, Themes and ViewModels
 - `data`
