@@ -19,22 +19,28 @@
 
 ## Architecture
 
-Utilizing [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) with [MVVM(Model-View-ViewModel)](https://developer.android.com/topic/libraries/architecture/viewmodel?hl=en) pattern.
-**Architecture folder structure and setup is opinionated**, for the most part, as long as the separation and modularization is clear.
-I'll try to give my high level reasoning for choosing this particular setup.
+> **Architecture folder structure and setup is opinionated**, for the most part, as long as the separation and modularization is clear.
 
-### High level folder setup
+This template utilizes [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) with [MVVM(Model-View-ViewModel)](https://developer.android.com/topic/libraries/architecture/viewmodel?hl=en) pattern. It also loosely recommends the [multi-module architecture pattern](https://developer.android.com/topic/modularization)
+
+See the [Architecture README](/doc/Architecture.md) for more information.
+
+![](/img/high-level-architecture.png)
+
+### High level folder structure
 
 - `di (Dependency Injection)` - [see README](./app/src/main/java/com/neudesic/myapplication/di/README.md)
   - Dagger Hilt injection modules
 - `domain`
-  - Contains context and interface which describes the behavior of a system and its interactions with users.
-  - Should be platform agnostic, meaning it doesn't have the specific implementation, rather just describes **what** the application does.
-  - `useCase` pattern
-    - https://github.com/android/architecture-samples/tree/usecases/app/src/main/java/com/example/android/architecture/blueprints/todoapp
-    - https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started#toc-anchor-002
-    - https://paulallies.medium.com/clean-architecture-in-the-flavour-of-jetpack-compose-dd4b0016f815
-    - https://proandroiddev.com/the-neverending-use-case-story-d30440e5c7f0
+
+  Contains context and interface which describes the behavior of a system and its interactions with users.
+  Domain information should be platform agnostic, meaning it doesn't have the specific implementation, rather just describes **what** the application does.
+
+  - `useCase` - Use cases show us the intent of the software
+  - `model` - Domain data model for the objects your App manages. _DTOs should be converted to domain models_
+  - `repository` - an abstraction of Data Access and it does not depend on details. _Implementation details should exist under `data/repository`_
+  - `constant` - any values that won't ever change in the entire app lifecycle
+
 - `ui`
   - Contains UI related code. Such as `@Composable`, Navigation, Themes and ViewModels
 - `data`

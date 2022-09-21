@@ -1,6 +1,6 @@
 # Internal Module - Network
 
-Handles all things related to the App's http calls
+Handles all things related to the App's service request, DTO (Data Transfer Object) and API services
 This module integrates with [Retrofit](https://square.github.io/retrofit/) and exposes the following
 
 - `CoreNetworkModule` - Interface which exposes the API service(s)

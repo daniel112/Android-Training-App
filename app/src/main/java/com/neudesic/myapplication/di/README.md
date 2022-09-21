@@ -9,8 +9,6 @@ Hilt provides a standard way to incorporate Dagger dependency injection into an 
 
 Functions declared with the dagger hit decorators (everything in `di` folder) does not get called by us. It's all abstracted away by the plugin to make our lives easier.
 
-![](/img/flow.png)
-
 ## di (Dependency Injection) Folder/File structure
 
 `di` folder is standard best practice for integrating with Dagger.
@@ -30,6 +28,7 @@ Sets up the injection on the App level. The snippet below will automatically inj
 In this case, it will know to use [data/repository/DadJokeRepositoryImpl](app/src/main/java/com/neudesic/myapplication/data/repository/DadJokeRepository.kt) in its usage in [domain/GetDadJokeUseCase.kt](./app/src/main/java/com/neudesic/myapplication/domain/repository/DadJokeRepository.kt)
 
 ## Usage Example
+
 TODO
 
 ### References used
