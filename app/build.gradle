@@ -1,15 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.neudesic.myapplication"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -26,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_16
+        targetCompatibility JavaVersion.VERSION_16
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_16
     }
     buildFeatures {
         compose true
@@ -43,9 +46,37 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
+    def nav_version = "2.5.2"
+    def retrofit_version = "2.9.0"
+    def dagger_version = "2.43.2"
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:$dagger_version"
+    kapt "com.google.dagger:hilt-android-compiler:$dagger_version"
+    //hiltViewModel
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+
+    // For instrumentation tests
+    androidTestImplementation  "com.google.dagger:hilt-android-testing:$dagger_version"
+    androidTestAnnotationProcessor "com.google.dagger:hilt-compiler:$dagger_version"
+
+    // For local unit tests
+    testImplementation "com.google.dagger:hilt-android-testing:$dagger_version"
+    testAnnotationProcessor "com.google.dagger:hilt-compiler:$dagger_version"
+
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+
+    // networking
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // for observeAsState
+    implementation "androidx.compose.runtime:runtime-livedata:1.2.1"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation "androidx.compose.ui:ui:$compose_version"
@@ -59,4 +90,8 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+}
+
+kapt {
+    correctErrorTypes true
 }
