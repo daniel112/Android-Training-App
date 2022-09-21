@@ -1,7 +1,7 @@
 package com.neudesic.myapplication.domain.repository
 
 import com.neudesic.myapplication.domain.model.DadJoke
-import com.neudesic.myapplication.domain.network.DataResult
+import com.neudesic.myapplication.domain.model.DataResult
 
 interface DadJokeRepository {
     /**

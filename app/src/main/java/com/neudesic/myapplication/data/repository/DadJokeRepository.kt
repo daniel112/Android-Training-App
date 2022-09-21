@@ -1,7 +1,11 @@
 package com.neudesic.myapplication.data.repository
 
+import com.neudesic.module.core.network.NetworkError
+import com.neudesic.module.core.network.NetworkException
+import com.neudesic.module.core.network.NetworkSuccess
 import com.neudesic.myapplication.domain.model.DadJoke
-import com.neudesic.myapplication.domain.network.*
+import com.neudesic.myapplication.domain.model.DataResult
+import com.neudesic.myapplication.domain.network.DadJokeAPIService
 import com.neudesic.myapplication.domain.repository.DadJokeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
