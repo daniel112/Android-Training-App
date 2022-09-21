@@ -1,4 +1,4 @@
-package com.neudesic.myapplication.domain.facade
+package com.neudesic.myapplication.domain.mapper
 
 import com.neudesic.module.core.network.data.dto.DadJokeDTO
 import com.neudesic.myapplication.domain.model.DadJoke

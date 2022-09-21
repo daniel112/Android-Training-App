@@ -4,7 +4,7 @@ import com.neudesic.module.core.network.DadJokeAPIService
 import com.neudesic.module.core.network.NetworkError
 import com.neudesic.module.core.network.NetworkException
 import com.neudesic.module.core.network.NetworkSuccess
-import com.neudesic.myapplication.domain.facade.DadJokeMapperFacade
+import com.neudesic.myapplication.domain.mapper.DadJokeMapperFacade
 import com.neudesic.myapplication.domain.model.DadJoke
 import com.neudesic.myapplication.domain.model.DataResult
 import com.neudesic.myapplication.domain.repository.DadJokeRepository

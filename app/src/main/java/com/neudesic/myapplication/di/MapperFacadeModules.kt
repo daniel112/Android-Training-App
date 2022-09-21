@@ -1,7 +1,7 @@
 package com.neudesic.myapplication.di
 
-import com.neudesic.myapplication.domain.facade.DadJokeMapperFacade
-import com.neudesic.myapplication.domain.facade.DadJokeMapperFacadeImpl
+import com.neudesic.myapplication.domain.mapper.DadJokeMapperFacade
+import com.neudesic.myapplication.domain.mapper.DadJokeMapperFacadeImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
