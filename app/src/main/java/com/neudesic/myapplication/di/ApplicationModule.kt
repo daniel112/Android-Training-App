@@ -15,7 +15,10 @@ import javax.inject.Singleton
 object ApplicationModule {
     @Provides
     @Singleton
-    fun providesDadJokeRepo(dadJokeAPIService: DadJokeAPIService): DadJokeRepository {
-        return DadJokeRepositoryImpl(dadJokeAPIService, DadJokeMapperFacade())
+    fun providesDadJokeRepo(
+        dadJokeAPIService: DadJokeAPIService,
+        dadJokeMapperFacade: DadJokeMapperFacade
+    ): DadJokeRepository {
+        return DadJokeRepositoryImpl(dadJokeAPIService, dadJokeMapperFacade)
     }
 }
