@@ -71,10 +71,6 @@ dependencies {
 
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
-    // networking
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-
     // for observeAsState
     implementation "androidx.compose.runtime:runtime-livedata:1.2.1"
 

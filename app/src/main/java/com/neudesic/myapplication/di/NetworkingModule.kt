@@ -2,14 +2,11 @@ package com.neudesic.myapplication.di
 
 import com.neudesic.module.core.network.CoreNetworkModule
 import com.neudesic.module.core.network.CoreNetworkModuleImpl
-import com.neudesic.myapplication.domain.network.*
+import com.neudesic.module.core.network.DadJokeAPIService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
-import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Qualifier
 
 /**
@@ -45,32 +42,14 @@ object NetworkingModule {
     }
 
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient()
-            .newBuilder()
-            .build()
-    }
-
-    @Provides
     fun provideCoreNetworkModule(): CoreNetworkModule {
         return CoreNetworkModuleImpl()
     }
 
     @Provides
-    fun provideRetrofitClient(@BaseUrlDadJoke baseUrl: String,
-                              okHttpClient: OkHttpClient,
-                                coreNetworkModule: CoreNetworkModule): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(coreNetworkModule.networkResultCallAdapterFactory())
-            .build()
-    }
-
-    @Provides
-    fun provideRestApiService(retrofit: Retrofit): DadJokeAPIService {
-        return retrofit.create(DadJokeAPIService::class.java)
+    fun provideDadJokeApiService(@BaseUrlDadJoke baseUrl: String,
+                                 coreNetworkModule: CoreNetworkModule): DadJokeAPIService {
+        return coreNetworkModule.getDadJokeAPIService(baseUrl)
     }
 }
 

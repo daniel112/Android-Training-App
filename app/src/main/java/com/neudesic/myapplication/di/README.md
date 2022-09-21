@@ -29,9 +29,8 @@ Sets up the injection on the App level. The snippet below will automatically inj
 
 In this case, it will know to use [data/repository/DadJokeRepositoryImpl](app/src/main/java/com/neudesic/myapplication/data/repository/DadJokeRepository.kt) in its usage in [domain/GetDadJokeUseCase.kt](./app/src/main/java/com/neudesic/myapplication/domain/repository/DadJokeRepository.kt)
 
-### NetworkingModule
-
-TBA
+## Usage Example
+TODO
 
 ### References used
 

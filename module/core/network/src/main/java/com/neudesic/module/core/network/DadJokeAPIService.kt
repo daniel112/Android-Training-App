@@ -1,7 +1,6 @@
-package com.neudesic.myapplication.domain.network
+package com.neudesic.module.core.network
 
-import com.neudesic.module.core.network.NetworkResult
-import com.neudesic.myapplication.data.repository.dto.DadJokeDTO
+import com.neudesic.module.core.network.data.dto.DadJokeDTO
 import retrofit2.http.GET
 import retrofit2.http.Headers
 

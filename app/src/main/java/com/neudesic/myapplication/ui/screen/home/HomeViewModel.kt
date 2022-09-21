@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.neudesic.myapplication.domain.model.DadJoke
-import com.neudesic.myapplication.domain.network.*
 import com.neudesic.myapplication.domain.useCase.GetDadJokesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
