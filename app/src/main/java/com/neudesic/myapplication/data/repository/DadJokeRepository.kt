@@ -1,12 +1,20 @@
 package com.neudesic.myapplication.data.repository
 
+import com.neudesic.module.core.network.DadJokeAPIService
+import com.neudesic.module.core.network.NetworkError
+import com.neudesic.module.core.network.NetworkException
+import com.neudesic.module.core.network.NetworkSuccess
+import com.neudesic.myapplication.domain.mapper.DadJokeMapperFacade
 import com.neudesic.myapplication.domain.model.DadJoke
-import com.neudesic.myapplication.domain.network.*
+import com.neudesic.myapplication.domain.model.DataResult
 import com.neudesic.myapplication.domain.repository.DadJokeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class DadJokeRepositoryImpl(private val dadJokeAPIService: DadJokeAPIService) : DadJokeRepository {
+class DadJokeRepositoryImpl(
+    private val dadJokeAPIService: DadJokeAPIService,
+    private val dadJokeMapperFacade: DadJokeMapperFacade
+    ) : DadJokeRepository {
     override suspend fun getJoke (): DataResult<DadJoke> {
         return withContext(Dispatchers.IO) {
             // network return obj is abstracted into DataResult
@@ -21,8 +29,7 @@ class DadJokeRepositoryImpl(private val dadJokeAPIService: DadJokeAPIService) : 
                     result.success = false
                     result.message = response.e.message ?: "Network Error"
                 }
-                // TODO: look into mapper from DTO to Domain
-                is NetworkSuccess -> result.data = response.data.toDomain()
+                is NetworkSuccess -> result.data = dadJokeMapperFacade.toDadJoke(response.data)
             }
             return@withContext result
         }

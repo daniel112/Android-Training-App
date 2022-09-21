@@ -1,9 +1,4 @@
-package com.neudesic.myapplication.domain.network
-
-/**
- * Used as the result object for Repository data fetching
- */
-class DataResult<T:Any>(var data: T? = null, var message: String? = null, var success: Boolean = true)
+package com.neudesic.module.core.network
 
 /**
  * Network results
@@ -23,7 +18,3 @@ class NetworkError<T : Any>(val code: Int, val message: String?) : NetworkResult
  * Represents a network result that faced an unexpected exception before getting a response from the network
  */
 class NetworkException<T : Any>(val e: Throwable) : NetworkResult<T>
-
-/**
- * TODO: Local DB Results
- */

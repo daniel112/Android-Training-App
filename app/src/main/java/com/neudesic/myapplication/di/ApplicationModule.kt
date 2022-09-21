@@ -1,7 +1,8 @@
 package com.neudesic.myapplication.di
 
+import com.neudesic.module.core.network.DadJokeAPIService
 import com.neudesic.myapplication.data.repository.DadJokeRepositoryImpl
-import com.neudesic.myapplication.domain.network.DadJokeAPIService
+import com.neudesic.myapplication.domain.mapper.DadJokeMapperFacade
 import com.neudesic.myapplication.domain.repository.DadJokeRepository
 import dagger.Module
 import dagger.Provides
@@ -12,10 +13,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 object ApplicationModule {
-    // TODO: try @binds?
     @Provides
     @Singleton
-    fun providesDadJokeRepo(dadJokeAPIService: DadJokeAPIService): DadJokeRepository {
-        return DadJokeRepositoryImpl(dadJokeAPIService)
+    fun providesDadJokeRepo(
+        dadJokeAPIService: DadJokeAPIService,
+        dadJokeMapperFacade: DadJokeMapperFacade
+    ): DadJokeRepository {
+        return DadJokeRepositoryImpl(dadJokeAPIService, dadJokeMapperFacade)
     }
 }
