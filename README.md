@@ -3,17 +3,18 @@
 ## Requirements
 
 - Android Studio 4.2+
-- [Android 11 SDK](https://developer.android.com/about/versions/11/setup-sdk#get-sdk)
+- [Android 13 SDK](https://developer.android.com/about/versions/11/setup-sdk#get-sdk)
 
 ## Utilizes
 
-- JAVA SDK 11
-- Android 11+ SDK
+- JAVA SDK 16
+- Android 13+ SDK
 - Android Compose for programmatic UI
 - Material 3 (Not to be used in production)
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel?gclid=CjwKCAjwpqCZBhAbEiwAa7pXeQ7l2QU5s7fw2QeayoBUARqeBFYheA_yQF3IdxZ1jA6292uYncpcGhoCDeQQAvD_BwE&gclsrc=aw.ds) - Android built it support for MVVM architecture
-- [Retrofit](https://square.github.io/retrofit/) - for networking utilities
-- [Dagger Hilt](https://dagger.dev/hilt/) - for clean dependency injection
+- [Retrofit](https://square.github.io/retrofit/) - Managed and developed by Square for networking utilities
+  - Popular standard for Android HTTP client
+- [Dagger Hilt](https://dagger.dev/hilt/) - Managed and developed by Google for clean dependency injection
 - [observeAsState](https://developer.android.com/reference/kotlin/androidx/compose/runtime/livedata/package-summary) - State observer for the compose pattern
 
 ## Architecture

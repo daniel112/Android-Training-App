@@ -11,6 +11,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.neudesic.myapplication.R
+import com.neudesic.myapplication.data.repository.DadJokeRepositoryImpl
+import com.neudesic.myapplication.domain.useCase.GetDadJokesUseCase
 import com.neudesic.myapplication.ui.screen.UserListScreen
 import com.neudesic.myapplication.ui.screen.home.HomeScreen
 import com.neudesic.myapplication.ui.screen.home.HomeViewModel
@@ -29,6 +31,11 @@ fun MainNavigationGraph(navController: NavHostController) {
     NavHost(navController, startDestination = Screen.Home.route) {
         composable(Screen.Home.route) {
             // ref: https://developer.android.com/training/dependency-injection/hilt-jetpack#viewmodel-navigation
+            /**
+             *  val repository = DadJokeRepositoryImpl(dadJokeAPIService)
+                val useCase = GetDadJokesUseCase(repository)
+                val viewModel = HomeViewModel(useCase)
+             */
             val viewModel = hiltViewModel<HomeViewModel>()
             HomeScreen(vm = viewModel)
         }

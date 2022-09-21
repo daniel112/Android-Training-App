@@ -12,6 +12,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 object ApplicationModule {
+    // TODO: try @binds?
     @Provides
     @Singleton
     fun providesDadJokeRepo(dadJokeAPIService: DadJokeAPIService): DadJokeRepository {
