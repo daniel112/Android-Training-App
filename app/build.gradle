@@ -8,13 +8,14 @@ plugins {
 
 android {
     compileSdk 33
+    buildToolsVersion '33.0.0'
 
     defaultConfig {
         applicationId "com.neudesic.myapplication"
         minSdk 21
         targetSdk 33
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -29,29 +30,28 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_16
-        targetCompatibility JavaVersion.VERSION_16
+        sourceCompatibility libs.versions.java.get()
+        targetCompatibility libs.versions.java.get()
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_16
+        jvmTarget = libs.versions.java.get()
     }
     buildFeatures {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion libs.versions.compose.get()
     }
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    buildToolsVersion '33.0.0'
 }
 
 dependencies {
     def nav_version = "2.5.2"
-    def dagger_version = "2.43.2"
+    def dagger_version = libs.versions.daggerhilt.get()
     implementation 'androidx.multidex:multidex:2.0.1'
 
     // Dagger - Hilt
@@ -62,11 +62,11 @@ dependencies {
 
     // For instrumentation tests
     androidTestImplementation  "com.google.dagger:hilt-android-testing:$dagger_version"
-    androidTestAnnotationProcessor "com.google.dagger:hilt-compiler:$dagger_version"
+    kaptAndroidTest "com.google.dagger:hilt-compiler:$dagger_version"
 
     // For local unit tests
     testImplementation "com.google.dagger:hilt-android-testing:$dagger_version"
-    testAnnotationProcessor "com.google.dagger:hilt-compiler:$dagger_version"
+    kaptTest "com.google.dagger:hilt-compiler:$dagger_version"
 
     implementation "androidx.navigation:navigation-compose:$nav_version"
 

@@ -1,0 +1,24 @@
+# Version Catalog for our App
+
+# used to declare versions which can be referenced by dependencies
+# example usage: libs.versions.compose.get()
+[versions]
+kotlin = "1.7.0"
+java = "11"
+compose = "1.2.0"
+daggerhilt = "2.43.2"
+
+# this section is used to declare plugins
+# NOTE: when declaring aliases any of the -, _ and . characters can be used as separators, but the generated catalog will have all normalized to .
+# example usage: alias libs.plugins.dagger.hilt
+[plugins]
+dagger-hilt = {id = "com.google.dagger.hilt.android", version.ref = "daggerhilt"}
+
+# this section is used to declare the aliases to coordinates
+# used to alias dependencies under buildscript.dependencies {}
+[libraries]
+
+# this section is used to declare dependency bundles
+[bundles]
+
+

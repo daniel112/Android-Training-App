@@ -32,6 +32,8 @@ fun MainNavigationGraph(navController: NavHostController) {
         composable(Screen.Home.route) {
             // ref: https://developer.android.com/training/dependency-injection/hilt-jetpack#viewmodel-navigation
             /**
+             * .....
+             * val dadJokeAPIService = ....
              *  val repository = DadJokeRepositoryImpl(dadJokeAPIService)
                 val useCase = GetDadJokesUseCase(repository)
                 val viewModel = HomeViewModel(useCase)
