@@ -16,7 +16,8 @@ How that applies on this project is as follows:
 
 - If we ever need to change networking dependency for any reason, the App layer does not need to be touched at all 🥳
 - Testing in isolation is much easier and cleaner
-  **Downside:**
+
+**Downside:**
 - We have to be strict and thorough with shared versions. We need to make sure all modules share the same versions
 - Possibility of overengineering by going too granular in modularization. **Need to pick and choose what makes sense to modularize in the App on a need basis**
 
