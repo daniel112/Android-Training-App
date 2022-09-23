@@ -4,7 +4,7 @@
 # example usage: libs.versions.compose.get()
 [versions]
 kotlin = "1.7.0"
-java = "11"
+jvm = "11"
 compose = "1.2.0"
 daggerhilt = "2.43.2"
 
