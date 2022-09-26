@@ -4,8 +4,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+    sourceCompatibility = libs.versions.jvm.get()
+    targetCompatibility = libs.versions.jvm.get()
 }
 
 dependencies {
